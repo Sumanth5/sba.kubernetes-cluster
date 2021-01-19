@@ -1,0 +1,57 @@
+NODE INFO:
+NAME       STATUS   ROLES    AGE    VERSION
+minikube   Ready    master   7d8h   v1.19.4
+DEPLOYMENT INFO:
+Name:                   sba-app
+Namespace:              default
+CreationTimestamp:      Tue, 19 Jan 2021 18:02:23 -0500
+Labels:                 <none>
+Annotations:            deployment.kubernetes.io/revision: 1
+Selector:               app=flaskapp
+Replicas:               3 desired | 3 updated | 3 total | 3 available | 0 unavailable
+StrategyType:           RollingUpdate
+MinReadySeconds:        0
+RollingUpdateStrategy:  25% max unavailable, 25% max surge
+Pod Template:
+  Labels:  app=flaskapp
+  Containers:
+   sba-python-container:
+    Image:        sumanth55/sba-app:v1
+    Port:         8090/TCP
+    Host Port:    0/TCP
+    Environment:  <none>
+    Mounts:       <none>
+  Volumes:        <none>
+Conditions:
+  Type           Status  Reason
+  ----           ------  ------
+  Available      False   MinimumReplicasUnavailable
+  Progressing    False   ProgressDeadlineExceeded
+OldReplicaSets:  <none>
+NewReplicaSet:   sba-app-576b594878 (3/3 replicas created)
+Events:
+  Type    Reason             Age   From                   Message
+  ----    ------             ----  ----                   -------
+  Normal  ScalingReplicaSet  37m   deployment-controller  Scaled up replica set sba-app-576b594878 to 3
+***SERVICE INFO***
+Name:                     sba-app
+Namespace:                default
+Labels:                   <none>
+Annotations:              <none>
+Selector:                 app=sba-app
+Type:                     NodePort
+IP Families:              <none>
+IP:                       10.106.29.14
+IPs:                      <none>
+Port:                     <unset>  8090/TCP
+TargetPort:               8090/TCP
+NodePort:                 <unset>  30007/TCP
+Endpoints:                172.17.0.3:8090,172.17.0.3:8090,172.17.0.3:8090
+Session Affinity:         None
+External Traffic Policy:  Cluster
+Events:                   <none>
+POD INFO:
+NAME                       READY   STATUS    RESTARTS   AGE
+sba-app-576b594878-58jkk   1/1     Running   0          34m
+sba-app-576b594878-7jj7l   1/1     Running   0          34m
+sba-app-576b594878-jxbk8   1/1     Running   0          34m
